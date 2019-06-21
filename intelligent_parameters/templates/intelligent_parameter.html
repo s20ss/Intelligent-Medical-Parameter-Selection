@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intelligent Paramter Selection</title>
+    <style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-top:50px;
+  margin-left:100px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+
+
+</head>
+<body>
+    <h1 align="center">Intelligent Parameter Selection</h1>
+    <form align="center" method="post">
+    <input id="keyword" name="keyword"> Enter the Key Word </input>
+        <input id="target_area" name="target_area"> Enter the Key Word </input>
+        <input type="submit"></input>
+    </form>
+
+
+    {% if table!=None   %}
+    <table id="customers">
+        <TR>
+        <TH>Relevance Score</TH>
+        <TH>Name of the Document</TH>
+            <TH>Keywords</TH>
+            <TH>Authors</TH>
+            <TH>Date</TH>
+
+
+        </TR>
+    {% for items in table %}
+
+    <TR>
+        <TD>{{items[0]}}</TD>
+        <TD>{{items[1]}}</TD>
+        <TD>{{items[2]}}</TD>
+        <TD>{{items[3]}}</TD>
+        <TD>{{items[4]}}</TD>
+
+    </TR>
+
+    {% endfor %}
+     </table>
+    {% endif %}
+
+</body>
+</html>
